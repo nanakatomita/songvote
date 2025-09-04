@@ -1,6 +1,6 @@
 body {
   font-family: sans-serif;
-  max-width: 600px;
+  max-width: 1200px;
   margin: 40px auto;
   text-align: center;
 }
@@ -9,15 +9,25 @@ h1 {
   color: #00a968;
 }
 
+#songs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  overflow: visible; /* 曲が途中で切れないように */
+}
+
 .song {
-  margin: 15px 0;
+  width: 30%;          /* 3列表示 */
+  margin: 10px 0;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 8px;
+  box-sizing: border-box;
 }
 
 img {
-  width: 200px;
+  width: 100%;
   border-radius: 10px;
   margin: 10px 0;
 }
@@ -34,6 +44,19 @@ button {
 
 button:hover {
   background: #3ce3c7;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 1000px) {
+  .song {
+    width: 45%;  /* タブレットは2列 */
+  }
+}
+
+@media (max-width: 600px) {
+  .song {
+    width: 90%;  /* スマホは1列 */
+  }
 }
 .warning {
   font-weight: bold;
